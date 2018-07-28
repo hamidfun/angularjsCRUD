@@ -1,0 +1,37 @@
+<div-Coustom></div-Coustom>
+<div ng-controller="listController">
+  <button class="btn btn-danger" ng-click="delete()"><i class="fas fa-trash-alt"></i></button>
+  <table class="table table-bordered table-striped">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col"> <strong>#</strong><u>I</u>d </th>
+        <th scope="col"> <u>T</u>itle </th>
+        <th scope="col"> <u>C</u>ontent </th>
+        <th scope="col"> <u>E</u>dit </th>
+        <th scope="col">
+          <div class="material-switch pull-right">
+            <input id="all" ng-model="checkAll" ng-change="tcheck()" type="checkbox"/>
+            <label for="all" class="label-success"></label>
+          </div>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="post in list">
+
+        <th scope="row"> {{ $index + 1}} </th>
+        <td><a href="#!post/{{post.id}}"> {{ post.title }} </a></td>
+        <td> {{ post.content }} </td>
+        <td>
+          <a href="#!update/{{post.id}}"><button type="click" class="btn btn-info"><i class="fas fa-edit"></i></button></a>
+        </td>
+        <td>
+          <div class="material-switch pull-right">
+            <input id="one-{{post.id}}" ng-model="post.Selected" ng-change="selectOne()" type="checkbox">
+            <label for="one-{{post.id}}" class="label-success"></label>
+          </div>
+        </td>
+      </tr>
+      <tbody>
+      </table>
+    </div>

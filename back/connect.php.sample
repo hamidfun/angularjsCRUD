@@ -1,0 +1,18 @@
+<?php
+//Connect to the database
+$hostName = 'localhost';
+$dbUserName = 'root';
+$dbPassWord = '';
+$dbName = 'news';
+$dbConnetc = "mysql:hostname={$hostName};dbname={$dbName};charset=utf8";
+try {
+    $db = new PDO($dbConnetc, $dbUserName, $dbPassWord);
+    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $db->exec("SET NAMES UTF8");
+    $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
+    $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+    //echo "success";
+} catch (PDOException $ex) {
+    echo $ex->getMessage();
+}
+?>
